@@ -1,18 +1,21 @@
-import "./RestaurantCard.css";
+import "../style/RestaurantCard.css";
 
-const RestaurantCard = () => {
+export default function RestaurantCard() {
+  const handleClick = () => {
+    console.log("Button clicked");
+  };
   return (
-    <div className="restaurant-card">
-      <div className="header">
-        <span role="img" aria-label="French flag" className="flag">🇫🇷</span>
-        <span className="title">NomRestau</span>
+    <button onClick={handleClick} className="restaurant-card">
+      <div className="align">
+        <span role="img" aria-label="French flag" className="flag">
+          🇫🇷
+        </span>
+        <span className="title2">NomRestau</span>
       </div>
       <div className="details">
         <p className="price">Prix : 20/30 €</p>
         <p className="arrondissement">Arr : 11 ème</p>
       </div>
-    </div>
+    </button>
   );
-};
-
-export default RestaurantCard;
+}
