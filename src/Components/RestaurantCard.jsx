@@ -1,6 +1,19 @@
 import "../style/RestaurantCard.css";
+import PropTypes from "prop-types";
 
-export default function RestaurantCard() {
+RestaurantCard.propTypes = {
+  flag: PropTypes.string.isRequired,
+  nameRestau: PropTypes.string.isRequired,
+  take: PropTypes.string.isRequired,
+  arrondissement: PropTypes.number.isRequired,
+};
+
+export default function RestaurantCard({
+  flag,
+  nameRestau,
+  take,
+  arrondissement,
+}) {
   const handleClick = () => {
     console.log("Button clicked");
   };
@@ -8,13 +21,15 @@ export default function RestaurantCard() {
     <button onClick={handleClick} className="restaurant-card">
       <div className="align">
         <span role="img" aria-label="French flag" className="flag">
-          🇫🇷
+          {flag}
         </span>
-        <span className="title2">NomRestau</span>
+        <span className="title2">{nameRestau}</span>
       </div>
       <div className="details">
-        <p className="price">Prix : 20/30 €</p>
-        <p className="arrondissement">Arr : 11 ème</p>
+        <p className="emporter">à emporter : {take} </p>
+        <p className="arrondissement">
+          arrondissement : {arrondissement}{arrondissement == 1 ? "er" : "ème"}
+        </p>
       </div>
     </button>
   );

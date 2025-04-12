@@ -1,4 +1,5 @@
 import "../style/MapsCard.css";
+import { Link } from 'react-router-dom'
 
 export default function MapsCard() {
   const handleClick = () => {
@@ -6,7 +7,7 @@ export default function MapsCard() {
   };
   return (
     <button onClick={handleClick} className="maps-card-container">
-      <p className="title-maps">Maps</p>
+      <Link to="/map" className="title-maps">Maps</Link>
     </button>
   );
 }
