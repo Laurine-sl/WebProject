@@ -5,15 +5,10 @@ RestaurantCard.propTypes = {
   flag: PropTypes.string.isRequired,
   nameRestau: PropTypes.string.isRequired,
   take: PropTypes.string.isRequired,
-  arrondissement: PropTypes.number.isRequired,
+  district: PropTypes.number.isRequired,
 };
 
-export default function RestaurantCard({
-  flag,
-  nameRestau,
-  take,
-  arrondissement,
-}) {
+export default function RestaurantCard({ flag, nameRestau, take, district }) {
   const handleClick = () => {
     console.log("Button clicked");
   };
@@ -27,8 +22,9 @@ export default function RestaurantCard({
       </div>
       <div className="details">
         <p className="emporter">à emporter : {take} </p>
-        <p className="arrondissement">
-          arrondissement : {arrondissement}{arrondissement == 1 ? "er" : "ème"}
+        <p className="district">
+          district : {district}
+          {district == 1 ? "er" : "ème"}
         </p>
       </div>
     </button>

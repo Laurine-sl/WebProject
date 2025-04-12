@@ -1,9 +1,16 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { getRestaurants } from "../lib/data";
 import RestaurantCard from "./RestaurantCard";
 
-export const RestaurantList = ({ arrondissement }) => {
+RestaurantList.propTypes = {
+  districts: PropTypes.number,
+};
+
+export default function RestaurantList({ districts }) {
   const [restaurants, setRestaurants] = useState([]);
+
+  console.log("Districts selected: ", districts);
 
   useEffect(() => {
     const fetchRestaurants = async () => {
@@ -14,9 +21,7 @@ export const RestaurantList = ({ arrondissement }) => {
   }, []);
 
   const filterFn = (restaurant) => {
-    return (
-      getArrondissement(restaurant.meta_code_com) == Number(arrondissement)
-    );
+    return districts.includes(format_district(restaurant.meta_code_com));
   };
 
   return (
@@ -30,13 +35,13 @@ export const RestaurantList = ({ arrondissement }) => {
             flag={getFlag(restaurant.cuisine)}
             nameRestau={restaurant.name}
             take={getTakeaway(restaurant.takeaway)}
-            arrondissement={getArrondissement(restaurant.meta_code_com)}
+            district={format_district(restaurant.meta_code_com)}
           />
         );
       })}
     </div>
   );
-};
+}
 
 const getTakeaway = (takeAway) => {
   if (takeAway.includes("yes")) {
@@ -45,12 +50,12 @@ const getTakeaway = (takeAway) => {
   return "non";
 };
 
-const getArrondissement = (code) => {
-  let arrondissement = code.slice(-2);
-  if (arrondissement[0] === "0") {
-    return arrondissement[1];
+const format_district = (code) => {
+  let district = code.slice(-2);
+  if (district[0] === "0") {
+    return district[1];
   }
-  return arrondissement;
+  return district;
 };
 
 const getFlag = (cook) => {
