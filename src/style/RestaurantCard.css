@@ -1,3 +1,11 @@
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5%;
+  margin: 0 5%;
+}
+
 .restaurant-card {
   display: flex;
   flex-direction: column;
@@ -8,6 +16,8 @@
   background-color: #f5f5f5;
   margin-right: auto;
   margin-bottom: 5%;
+  overflow: hidden;
+  width: 20%;
 }
 
 .restaurant-card:active {
@@ -40,7 +50,7 @@ p {
   text-align: left;
 }
 
-.price,
+.emporter,
 .arrondissement {
   font-family: "Roboto";
   font-size: 22px;
