@@ -5,9 +5,10 @@ import RestaurantCard from "./RestaurantCard";
 
 RestaurantList.propTypes = {
   districts: PropTypes.number,
+  selectedTakeaway: PropTypes.bool,
 };
 
-export default function RestaurantList({ districts }) {
+export default function RestaurantList({ districts, selectedTakeaway }) {
   const [restaurants, setRestaurants] = useState([]);
 
   console.log("Districts selected: ", districts);
@@ -21,7 +22,10 @@ export default function RestaurantList({ districts }) {
   }, []);
 
   const filterFn = (restaurant) => {
-    return districts.includes(format_district(restaurant.meta_code_com));
+    return selectedTakeaway
+      ? districts.includes(format_district(restaurant.meta_code_com)) &&
+          restaurant.takeaway.includes("yes")
+      : districts.includes(format_district(restaurant.meta_code_com));
   };
 
   return (

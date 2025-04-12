@@ -25,7 +25,13 @@ export default function Content() {
     "19",
     "20",
   ];
-  let [selectedDistricts, setSelectedDistricts] = useState(allDistricts);
+  const [selectedDistricts, setSelectedDistricts] = useState(allDistricts);
+  const [selectedTakeaway, setSelectedTakeaway] = useState(true);
+
+  const handle_takeaway = (event) => {
+    const value = event.target.checked;
+    setSelectedTakeaway(value);
+  }
 
   const add_district_to_filter = (event) => {
     const value = event.target.id;
@@ -44,14 +50,16 @@ export default function Content() {
         selectedDistricts.filter((district) => district != value)
       );
     }
+
   };
   return (
     <div className="content">
       <Filter
         add_district_to_filter={add_district_to_filter}
         remove_district_to_filter={remove_district_to_filter}
+        handle_takeaway={handle_takeaway}
       />
-      <RestaurantList districts={selectedDistricts} />
+      <RestaurantList districts={selectedDistricts} selectedTakeaway={selectedTakeaway}/>
     </div>
   );
 }

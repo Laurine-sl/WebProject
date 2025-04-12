@@ -4,11 +4,13 @@ import PropTypes from "prop-types";
 Filter.propTypes = {
   add_district_to_filter: PropTypes.function,
   remove_district_to_filter: PropTypes.function,
+  handle_takeaway: PropTypes.function,
 };
 
 export default function Filter({
   add_district_to_filter,
   remove_district_to_filter,
+  handle_takeaway,
 }) {
   const options = [];
 
@@ -20,7 +22,7 @@ export default function Filter({
       <label className="title-filter">Filtrer par :</label>
 
       <label value="district">
-        District :
+        Arrondissements :
         <ul>
           {options.map((option, index) => (
             <li key={index}>
@@ -38,14 +40,22 @@ export default function Filter({
                   }
                 }}
               />
-              <label htmlFor={index + 1}>{index + 1}ème</label>
+              <label htmlFor={index + 1}>
+                {index + 1}
+                {index + 1 == 1 ? "er" : "ème"}
+              </label>
             </li>
           ))}
         </ul>
       </label>
       <label value="à emporter">
         Service à emporter
-        <input type="checkbox" name="myCheckbox" defaultChecked={true} />
+        <input 
+        type="checkbox" 
+        name="myCheckbox" 
+        defaultChecked={false}
+        onChange={handle_takeaway}
+        />
       </label>
       <button type="reset">Réinitialiser</button>
     </div>

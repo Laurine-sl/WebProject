@@ -23,7 +23,7 @@ export default function RestaurantCard({ flag, nameRestau, take, district }) {
       <div className="details">
         <p className="emporter">à emporter : {take} </p>
         <p className="district">
-          district : {district}
+          arrondissement : {district}
           {district == 1 ? "er" : "ème"}
         </p>
       </div>
