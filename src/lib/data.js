@@ -4,7 +4,13 @@ const api_url =
 export async function getRestaurants() {
   const response = await fetch(api_url);
   const data = await response.json();
-  console.log(data);
-  console.log(data.results);
   return data.results;
+}
+export async function getRestaurant(nameRestau) {
+  const restaurants = await getRestaurants();
+  const result = restaurants.filter(
+    (restaurant) => restaurant.name == nameRestau
+  );
+  // console.log(result);
+  return result;
 }

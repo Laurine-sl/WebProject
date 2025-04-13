@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../style/RestaurantCard.css";
 import PropTypes from "prop-types";
 
@@ -9,11 +10,12 @@ RestaurantCard.propTypes = {
 };
 
 export default function RestaurantCard({ flag, nameRestau, take, district }) {
-  const handleClick = () => {
-    console.log("Button clicked");
-  };
   return (
-    <button onClick={handleClick} className="restaurant-card">
+    <Link
+      to={"/infos_restaurant/" + nameRestau}
+      key={nameRestau}
+      className="restaurant-card"
+    >
       <div className="align">
         <span role="img" aria-label="French flag" className="flag">
           {flag}
@@ -27,6 +29,6 @@ export default function RestaurantCard({ flag, nameRestau, take, district }) {
           {district == 1 ? "er" : "ème"}
         </p>
       </div>
-    </button>
+    </Link>
   );
 }
