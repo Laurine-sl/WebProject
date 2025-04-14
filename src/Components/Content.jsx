@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Filter from "./Filter";
 import RestaurantList from "./RestaurantList";
+import "../style/Content.css";
 
 export default function Content() {
   const allDistricts = [
@@ -31,7 +32,7 @@ export default function Content() {
   const handle_takeaway = (event) => {
     const value = event.target.checked;
     setSelectedTakeaway(value);
-  }
+  };
 
   const add_district_to_filter = (event) => {
     const value = event.target.id;
@@ -50,7 +51,15 @@ export default function Content() {
         selectedDistricts.filter((district) => district != value)
       );
     }
+  };
 
+  const reset = () => {
+    setSelectedDistricts(allDistricts);
+    setSelectedTakeaway(false);
+    const checkboxes = document.querySelectorAll("input[type=checkbox]");
+    checkboxes.forEach((checkbox) => {
+      checkbox.checked = false;
+    });
   };
   return (
     <div className="content">
@@ -58,8 +67,12 @@ export default function Content() {
         add_district_to_filter={add_district_to_filter}
         remove_district_to_filter={remove_district_to_filter}
         handle_takeaway={handle_takeaway}
+        reset={reset}
       />
-      <RestaurantList districts={selectedDistricts} selectedTakeaway={selectedTakeaway}/>
+      <RestaurantList
+        districts={selectedDistricts}
+        selectedTakeaway={selectedTakeaway}
+      />
     </div>
   );
 }
