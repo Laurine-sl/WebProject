@@ -15,11 +15,11 @@
   font-weight: SemiBold;
   font-size: 3vw;
   text-align: left;
-  padding-left: 5%;
+  padding-left: 3%;
   padding-top: 1%;
   padding-bottom: 1%;
   cursor: pointer;
-  min-width: 200px;
+  min-width: 160px;
 }
 
 .option-wrapper {
@@ -115,4 +115,16 @@
   .title-filter {
     font-size: 2.5em;
   }
+}
+@media screen and (max-width: 850px) {
+  .option-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10%;
+    font-size: 1em;
+  }
+  
 }

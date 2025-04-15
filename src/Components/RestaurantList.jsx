@@ -66,18 +66,24 @@ const getFlag = (cook) => {
   let flags = " ";
   if (cook.includes("italian") || cook.includes("pizza")) {
     return "🇮🇹";
-  } else if (cook.includes("japanese") || cook.includes("sushi")) {
+  } else if (
+    cook.includes("japanese") ||
+    cook.includes("sushi") ||
+    cook.includes("japonais")
+  ) {
     return "🇯🇵";
   } else if (
     cook.includes("french") ||
     cook.includes("regional") ||
-    cook.includes("brasserie")
+    cook.includes("brasserie") ||
+    cook.includes("local")
   ) {
     return "🇫🇷";
   } else if (
     cook.includes("chinese") ||
     cook.includes("fusion_asiatique") ||
     cook.includes("asian")
+    || cook.includes("Chinese")
   ) {
     return "🇨🇳";
   } else if (cook.includes("american")) {
@@ -102,18 +108,28 @@ const getFlag = (cook) => {
     return "🇹🇷";
   } else if (cook.includes("quebec")) {
     return "🍁";
+  } else if (cook.includes("taiwanese")) {
+    return "🇹🇼";
+  } else if (cook.includes("portuguese")) {
+    return "🇵🇹";
   } else if (cook.includes("couscous") || cook.includes("arab")) {
     return "🇲🇦";
   } else if (cook.includes("steak_house") || cook.includes("cordon_bleu")) {
     return "🥩";
   } else if (cook.includes("seafood") || cook.includes("mediterranean")) {
     return "🦞";
-  } else if (cook.includes("salad")) {
+  } else if (cook.includes("salad") || cook.includes("bento")) {
     return "🥗";
   } else if (cook.includes("crepe")) {
     return "🥞";
   } else if (cook.includes("flammkuchen")) {
     return "🍕";
+  } else if (cook.includes("brunch")) {
+    return "🍳";
+  } else if (cook.includes("burger")) {
+    return "🍔";
+  } else if (cook.includes("fries")) {
+    return "🍟";
   }
   return flags;
 };
