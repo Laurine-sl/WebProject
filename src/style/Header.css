@@ -10,7 +10,7 @@
   justify-content: center;
 }
 
-.cadre {
+.frame {
   /*width: 1478px;*/
   width: 97%;
   height: 88%;
@@ -23,7 +23,7 @@
   margin-bottom: 2%;
 }
 
-.texte {
+.text {
   flex-direction: column;
   vertical-align: center;
   display: flex;
@@ -31,7 +31,7 @@
   margin-bottom: auto;
 }
 
-.titre {
+.title1 {
   font-family: "EB Garamond";
   font-size: 10vw;
   font-weight: regular;
@@ -44,7 +44,7 @@
   color: #f5f5f5;
 }
 
-.maps {
+.map-button {
   display: flex;
   margin-top: auto;
   margin-bottom: auto;
@@ -56,10 +56,10 @@
   .header {
   text-align: center;
   }
-  .cadre {
+  .frame {
     flex-direction: column;
   }
-  .titre {
+  .title1 {
     font-size: 3em;
   }
   .slogan {

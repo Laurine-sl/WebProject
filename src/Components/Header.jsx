@@ -4,12 +4,12 @@ import MapsCard from "../Components/MapsCard.jsx";
 const Header = () => {
   return (
     <div className="header">
-      <div className="cadre">
-        <div className="texte">
-          <p className="titre">Restau&GO</p>
+      <div className="frame">
+        <div className="text">
+          <p className="title1">Restau&GO</p>
           <p className="slogan">Explorez, savourez, repartez.</p>
         </div>
-        <div className="maps">
+        <div className="map-button">
           <MapsCard />
         </div>
       </div>
