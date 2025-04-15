@@ -13,7 +13,6 @@ export default function InfosRestaurant() {
     };
     fetchRestaurants();
   }, [nameRestau, setRestaurants]);
-  console.log("InfosRestaurant", restaurant);
 
   return (
     <div className="infos-restaurant">
