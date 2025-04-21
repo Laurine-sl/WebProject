@@ -12,7 +12,7 @@ RestaurantCard.propTypes = {
 export default function RestaurantCard({ flag, nameRestau, take, district }) {
   return (
     <Link
-      to={"/infos_restaurant/" + nameRestau}
+      to={"/info_restaurant/" + nameRestau}
       key={nameRestau}
       className="restaurant-card"
     >
